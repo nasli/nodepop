@@ -1,0 +1,39 @@
+{
+    "ads": [
+        { 
+            "name": "Cupcakes baking pan",
+            "sale": true,
+            "price": 9.99,
+            "image": "images/ads/cupcakesBakingPan.jpg", 
+            "tags": [ "lifestyle", "work" ]
+        },
+        { 
+            "name": "Audi a3 220cv",
+            "sale": true,
+            "price": 11.500,
+            "image": "images/ads/carAudi.jpg", 
+            "tags": [ "motor" ]
+        },
+        { 
+            "name": "Red iPhone 7 case",
+            "sale": true,
+            "price": 7,
+            "image": "images/ads/iphoneCase.jpg", 
+            "tags": [ "lifestyle", "mobile" ]
+        },
+        { 
+            "name": "Classic bicycle with fruit design",
+            "sale": true,
+            "price": 507.53,
+            "image": "images/ads/bicycle.jpg", 
+            "tags": [ "lifestyle", "motor" ]
+        },
+        { 
+            "name": "Laptog bag, laptop 15.6  - Brown",
+            "sale": true,
+            "price": 37.53,
+            "image": "images/ads/bag.jpg", 
+            "tags": [ "lifestyle", "work" ]
+        }
+    ]
+}
