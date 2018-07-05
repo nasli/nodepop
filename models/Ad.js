@@ -20,7 +20,12 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     const query = Ad.find(filter);
     query.skip(skip);
     query.limit(limit);
-    query.select(fields + apiHiddenFields);
+    if (fields) {
+        query.select(fields + apiHiddenFields);
+
+    } else {
+        query.select(apiHiddenFields);
+    }
     query.sort(sort);
 
     return query.exec();
