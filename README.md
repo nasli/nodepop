@@ -30,18 +30,36 @@ Templates engine ejs with extension html.
 
 ## DB Schema
 
-Collection Ads: Has information about your ads
+*Collection Ads:*  Has information about your ads
 
+*Collection Users:*  Has information about registered users
 
 ## API documentation
 
-http://localhost:3000/apiv1/ads?skip=0&limit=2&fields=name&sort=name
+### Ads
+    http://localhost:3000/apiv1/ads
 
-To paginate results you can use:
-?skip=1&limit=2
 
-To choose only some fields:
-&fields=name%20-_id
+### Users
+    http://localhost:3000/apiv1/users
 
-To sort
-&sort=name
+
+### Filter
+
+On each collection you can filter results
+
+    http://localhost:3000/apiv1/collectionName?skip=0&limit=2&fields=name&sort=name
+
+*Paginate*
+
+    ?skip=1&limit=2
+
+*Filter properties to show*
+
+    &fields=name
+
+*Sort by*
+
+    &sort=name 
+
+

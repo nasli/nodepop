@@ -35,5 +35,12 @@
             "image": "images/ads/bag.jpg", 
             "tags": [ "lifestyle", "work" ]
         }
+    ],
+    "users": [
+        {
+            "name": "Noelia",
+            "email": "mymail@gmail.com",
+            "pass": "123"
+        }
     ]
 }

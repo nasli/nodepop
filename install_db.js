@@ -5,6 +5,8 @@ const path = require('path');
 const conn = require('./lib/connectMongoose');
 
 initDBColection('ads');
+initDBColection('users');
+
 
 function getLocalAds(callback) {
 
@@ -46,7 +48,7 @@ async function initDBColection(collectionName) {
                 return;
             }
             console.log('Loading ParsedJSON data in DB: ', parsedAds);
-            documents = parsedAds['ads'];
+            documents = parsedAds[collectionName];
             conn.collection(collectionName).insertMany(documents);
         });
 
