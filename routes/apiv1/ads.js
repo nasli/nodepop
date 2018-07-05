@@ -39,10 +39,10 @@ router.get('/', async (req, res, next) => {
  */
  router.post('/', async (req, res, next) => {
     try {
-        //const ad = new Ad(req.body);
-        const ad = new Ad( { article: {name: 'Cupcakes'}, tags: ['lifestyle'] });
-          
+        const ad = new Ad(req.body);
+
         const adSaved = await ad.save();
+        
         res.json({ success: true, result: adSaved });
 
     } catch(err) {
