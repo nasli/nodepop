@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
+// Mongo DB connection
 require('./lib/connectMongoose');
 
 app.use(logger('dev'));
@@ -19,6 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// API routes
+app.use('/apiv1/ads', require('./routes/apiv1/ads'));
+
+// App routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 

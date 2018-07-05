@@ -26,4 +26,22 @@ npm run dev
 
 ## Views
 
-Templates with extension html.
+Templates engine ejs with extension html.
+
+## DB Schema
+
+Collection Ads: Has information about your ads
+
+
+## API documentation
+
+http://localhost:3000/apiv1/ads?skip=0&limit=2&fields=name&sort=name
+
+To paginate results you can use:
+?skip=1&limit=2
+
+To choose only some fields:
+&fields=name%20-_id
+
+To sort
+&sort=name
