@@ -24,6 +24,13 @@ To start the application in development mode use:
 npm run dev
 ```
 
+### Install data in DB from JSON
+
+To start the application in development mode and pre loading test data in DB use:
+```shell
+npm run install_db
+```
+
 ## Views
 
 Templates engine ejs with extension html.
