@@ -39,27 +39,43 @@ Templates engine ejs with extension html.
 ### Ads
     http://localhost:3000/apiv1/ads
 
+#### Filter ads
 
-### Users
-    http://localhost:3000/apiv1/users
+You can filter results
 
+    http://localhost:3000/apiv1/ads?tags=mobile&sale=false&name=ip&price=50-&skip=0&limit=2&sort=price&fields=name,price
 
-### Filter
+*Filter properties, show all that match conditions*
 
-On each collection you can filter results
+    &tags=              [ options (mobile, work, lifestyle, motor)]
+         =mobile        --> with tag mobile
+         =mobile,work   --> with tag mobile or tag work
 
-    http://localhost:3000/apiv1/collectionName?skip=0&limit=2&fields=name&sort=name
+    &sale=              [options (false/true)]
+         =false         --> with sale false
+         =true          --> with sale true
+
+    &name=ip            --> show all with name that start with "ip"
+
+    &price=10-50        --> between prices 10-50
+          =10-          --> with price over 10
+          =-50          --> with price under 50
+          =50           --> with price equal to 50
 
 *Paginate*
 
-    ?skip=1&limit=2
+    ?skip=1&limit=2     --> skip 1 and show all that match with a limit of 2
 
 *Filter properties to show*
 
-    &fields=name
+    &fields=            [ options (name, sale, price, image, tags)]
+           =name        --> only show the property name in the results
+           =name,price  --> only show the properties name and price in the results
 
 *Sort by*
 
-    &sort=name 
+    &sort=name          --> sort by property name
 
+### Users
+    http://localhost:3000/apiv1/users
 

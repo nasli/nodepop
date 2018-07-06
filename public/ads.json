@@ -1,5 +1,19 @@
 {
     "ads": [
+        {
+            "name": "Bicicleta",
+            "sale": true,
+            "price": 230.15,
+            "image": "images/ads/bici.jpg", 
+            "tags": [ "lifestyle", "motor"]
+        }, 
+        {
+            "name": "iPhone",
+            "sale": false,
+            "price": 50.00,
+            "image": "images/ads/iphone.png", 
+            "tags": [ "lifestyle", "mobile"]
+        },
         { 
             "name": "Cupcakes baking pan",
             "sale": true,
@@ -10,8 +24,8 @@
         { 
             "name": "Audi a3 220cv",
             "sale": true,
-            "price": 11.500,
-            "image": "images/ads/carAudi.jpg", 
+            "price": 11500,
+            "image": "images/ads/audi.jpg", 
             "tags": [ "motor" ]
         },
         { 
@@ -25,7 +39,7 @@
             "name": "Classic bicycle with fruit design",
             "sale": true,
             "price": 507.53,
-            "image": "images/ads/bicycle.jpg", 
+            "image": "images/ads/bikeDesign.jpg", 
             "tags": [ "lifestyle", "motor" ]
         },
         { 
@@ -33,18 +47,18 @@
             "sale": true,
             "price": 37.53,
             "image": "images/ads/bag.jpg", 
-            "tags": [ "lifestyle", "work" ]
+            "tags": [ "work" ]
         }
     ],
     "users": [
         {
             "name": "Noelia",
-            "email": "mymail@gmail.com",
+            "email": "mymailN@gmail.com",
             "pass": "123"
         },
         {
             "name": "Paco",
-            "email": "mymail@gmail.com",
+            "email": "mymailP@gmail.com",
             "pass": "123"
         }
     ]

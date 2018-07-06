@@ -17,7 +17,7 @@ userSchema.statics.list = function(filter, skip, limit, fields, sort) {
     query.skip(skip);
     query.limit(limit);
     if (fields) {
-        query.select(fields + apiExclusionID);
+        query.select(fields.replace(","," ") + apiExclusionID);
 
     } else {
         query.select(apiExclusionID + apiExclusionFields);

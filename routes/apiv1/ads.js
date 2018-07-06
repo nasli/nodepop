@@ -5,7 +5,6 @@ const router = express.Router();
 
 const Ad = require('../../models/Ad');
 
-
 /**
  * GET /
  * List of ads
@@ -13,7 +12,12 @@ const Ad = require('../../models/Ad');
 router.get('/', async (req, res, next) => {
     try {
        
-    const name = req.query.name; 
+    const tags = req.query.tags;
+
+    const sale = req.query.sale;    
+    const name = req.query.name;
+    const price = req.query.price; 
+
     const skip = parseInt(req.query.skip);
     const limit = parseInt(req.query.limit);
     const fields = req.query.fields;
@@ -21,8 +25,38 @@ router.get('/', async (req, res, next) => {
 
     const filter = {};
 
+    if (tags) {
+        const tagsArray = tags.split(",");
+        console.log(tagsArray);
+        filter.tags = tagsArray;
+    }
+
+    if (sale) {
+        filter.sale = sale;
+    }
+
+    if (price) {
+        const priceArrSplited = price.split('-');
+
+        if (priceArrSplited.length === 1) {
+            //equal price
+            filter.price = equalPrice;
+        } else {
+            const minPrice = priceArrSplited[0];
+            const maxPrice = priceArrSplited[1];
+
+            if (minPrice === "") {
+                filter.price = { '$lte' : maxPrice};
+            } else if (maxPrice === "") {
+                filter.price = { '$gte' : minPrice};
+            } else {
+                filter.price = { '$gte' : minPrice, '$lte' : maxPrice};
+            }
+        }
+    }
+
     if (name) {
-        filter.name = name;
+        filter.name = new RegExp('^' + name, "i");
     }
 
     const ads = await Ad.list(filter, skip, limit, fields, sort);

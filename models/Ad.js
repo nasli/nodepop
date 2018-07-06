@@ -21,7 +21,7 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     query.skip(skip);
     query.limit(limit);
     if (fields) {
-        query.select(fields + apiExclusionID);
+        query.select(fields.replace(","," ") + apiExclusionID);
 
     } else {
         query.select(apiExclusionID);
@@ -31,7 +31,11 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     return query.exec();
 }
 
-adSchema.index({ name: 1, sale: 1, price: 1, tags: 1});
+adSchema.index({ price: 1, sale: 1, name: 1, tags: 1});
+adSchema.index({ name: 1 });
+adSchema.index({ price: 1 });
+adSchema.index({ sale: 1 });
+adSchema.index({ tags: 1 });
 
 const Ad = mongoose.model('Ad', adSchema);
 
