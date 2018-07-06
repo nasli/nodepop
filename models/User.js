@@ -9,17 +9,18 @@ const userSchema = mongoose.Schema({
     pass: String 
 }); 
 
-const apiHiddenFields = ' -_id, -pass';
+const apiExclusionFields = ' -pass';
+const apiExclusionID = ' -_id';
 
 userSchema.statics.list = function(filter, skip, limit, fields, sort) {
     const query = User.find(filter);
     query.skip(skip);
     query.limit(limit);
     if (fields) {
-        query.select(fields + apiHiddenFields);
+        query.select(fields + apiExclusionID);
 
     } else {
-        query.select(apiHiddenFields);
+        query.select(apiExclusionID + apiExclusionFields);
     }
     query.sort(sort);
 

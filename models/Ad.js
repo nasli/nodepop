@@ -14,17 +14,17 @@ const adSchema = mongoose.Schema({
     }
 }); 
 
-const apiHiddenFields = ' -_id';
+const apiExclusionID = ' -_id';
 
 adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     const query = Ad.find(filter);
     query.skip(skip);
     query.limit(limit);
     if (fields) {
-        query.select(fields + apiHiddenFields);
+        query.select(fields + apiExclusionID);
 
     } else {
-        query.select(apiHiddenFields);
+        query.select(apiExclusionID);
     }
     query.sort(sort);
 

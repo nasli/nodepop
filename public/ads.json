@@ -41,6 +41,11 @@
             "name": "Noelia",
             "email": "mymail@gmail.com",
             "pass": "123"
+        },
+        {
+            "name": "Paco",
+            "email": "mymail@gmail.com",
+            "pass": "123"
         }
     ]
 }
