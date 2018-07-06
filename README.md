@@ -16,6 +16,20 @@ This application uses MongoDB. To start MongoDB you can use:
 ./bin/mongod --dbpath ./data/db --directoryperdb
 ```
 
+## Start
+
+To start the app use:
+
+```shell
+npm start
+```
+
+To start in cluster mode use:
+
+```shell
+npm run cluster
+```
+
 ## Development
 
 To start the application in development mode use:
