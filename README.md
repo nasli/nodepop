@@ -97,6 +97,10 @@ You can filter results
 
     &sort=name          --> sort by property name
 
+*Token*
+
+    &token=             --> to allow access use JWT
+
 ### Users
     http://localhost:3000/apiv1/users
 
@@ -109,4 +113,3 @@ Use that token in the rest of request in:
     - body: token
     - query string: token
 
-    

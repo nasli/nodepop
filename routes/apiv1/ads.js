@@ -5,11 +5,13 @@ const router = express.Router();
 
 const Ad = require('../../models/Ad');
 
+const jwtAuth = require('../../lib/jwtAuth');
+
 /**
  * GET /
  * List of ads
  */
-router.get('/', async (req, res, next) => {
+router.get('/', jwtAuth(), async (req, res, next) => {
     try {
        
     const tags = req.query.tags;
@@ -40,7 +42,7 @@ router.get('/', async (req, res, next) => {
 
         if (priceArrSplited.length === 1) {
             //equal price
-            filter.price = equalPrice;
+            filter.price = priceArrSplited[0];
         } else {
             const minPrice = priceArrSplited[0];
             const maxPrice = priceArrSplited[1];
