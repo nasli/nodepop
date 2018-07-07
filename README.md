@@ -100,3 +100,13 @@ You can filter results
 ### Users
     http://localhost:3000/apiv1/users
 
+### Authentication
+
+To obtain a token make a POST to: /apiv1/users/authenticate with email & password
+
+Use that token in the rest of request in:
+    - header: 'x-access-token'
+    - body: token
+    - query string: token
+
+    
