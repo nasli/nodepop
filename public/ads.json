@@ -53,12 +53,12 @@
     "users": [
         {
             "name": "Noelia",
-            "email": "mymailN@gmail.com",
+            "email": "myemailN@example.com",
             "pass": "123"
         },
         {
             "name": "Paco",
-            "email": "mymailP@gmail.com",
+            "email": "myemailP@example.com",
             "pass": "123"
         }
     ]

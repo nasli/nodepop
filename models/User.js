@@ -2,12 +2,13 @@
 
 const mongoose = require('mongoose');
 
-// primero definimos un esquema
+// Define model
 const userSchema = mongoose.Schema({
     name: String,
-    email: String,
+    email: {type: String, unique: true},
     pass: String 
 }); 
+
 
 const apiExclusionFields = ' -pass';
 const apiExclusionID = ' -_id';
@@ -27,7 +28,7 @@ userSchema.statics.list = function(filter, skip, limit, fields, sort) {
     return query.exec();
 }
 
-userSchema.index({ name: 1, email: 1});
+userSchema.index({ name: 1 });
 
 const User = mongoose.model('User', userSchema);
 
