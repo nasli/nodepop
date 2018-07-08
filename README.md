@@ -110,9 +110,12 @@ To obtain a list of all available tags for ads use next endpoint with a JWT:
 ### Users
     http://localhost:3000/apiv1/users
 
+To create new user make a POST to: / apiv1/users with the name, email and password. 
+Password will be encripted with crypto hash lib.
+
 ### Authentication
 
-To obtain a token make a POST to: /apiv1/users/authenticate with email & password
+To obtain a token make a POST to: /apiv1/users/authenticate with email and password
 
 Use that token in the rest of request in:
     - header: 'x-access-token'

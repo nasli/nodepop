@@ -93,22 +93,4 @@ router.post('/authenticate', async (req, res, next) => {
     }
 });
 
-/**
- * PUT /
- * Update user
- */
-router.put('/:id', async (req, res, next) => {
-    try {
-        const _id = req.params.id;
-        const data = req.body;
-
-        const userUpdated = await User.findOneAndUpdate({ _id: _id }, data, { new: true }).exec() 
-
-        res.json({ success: true, result: userUpdated });
-
-    } catch(err) {
-        next(err);
-    }
-});
-
 module.exports = router;
