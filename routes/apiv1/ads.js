@@ -8,13 +8,29 @@ const Ad = require('../../models/Ad');
 const jwtAuth = require('../../lib/jwtAuth');
 
 /**
+ * GET /tags
+ * List of available tags for the ads
+ */
+router.get('/tags', jwtAuth(), async (req, res, next) => {
+    try {
+
+        const tags = Ad.schema.path('tags').enumValues;
+        console.log(tags);
+        res.json({ success: true, result: tags });
+
+    } catch(err) {
+        next(err);
+    }
+});
+
+/**
  * GET /
  * List of ads
  */
 router.get('/', jwtAuth(), async (req, res, next) => {
     try {
-       
-    const tags = req.query.tags;
+
+    const tags =   req.query.tags;
 
     const sale = req.query.sale;    
     const name = req.query.name;
@@ -29,7 +45,6 @@ router.get('/', jwtAuth(), async (req, res, next) => {
 
     if (tags) {
         const tagsArray = tags.split(",");
-        console.log(tagsArray);
         filter.tags = tagsArray;
     }
 

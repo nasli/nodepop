@@ -101,6 +101,12 @@ You can filter results
 
     &token=             --> to allow access use JWT
 
+### Tags 
+
+To obtain a list of all available tags for ads use next endpoint with a JWT:
+    http://localhost:3000/apiv1/ads/tags?token=
+ 
+
 ### Users
     http://localhost:3000/apiv1/users
 

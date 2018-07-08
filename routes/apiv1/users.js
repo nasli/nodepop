@@ -34,22 +34,22 @@ const localConfig = require('../../localConfig');
 //     }
 // });
 
-// /**
-//  * POST /
-//  * Add new user
-//  */
-//  router.post('/', async (req, res, next) => {
-//     try {
-//         const user = new User(req.body);
+/**
+ * POST /
+ * Add new user
+ */
+ router.post('/', async (req, res, next) => {
+    try {
+        const user = new User(req.body);
           
-//         const userSaved = await user.save();
+        const userSaved = await user.save();
 
-//         res.json({ success: true, result: userSaved });
+        res.json({ success: true, result: userSaved });
 
-//     } catch(err) {
-//         next(err);
-//     }
-// });
+    } catch(err) {
+        next(err);
+    }
+});
 
 /**
  * POST /
