@@ -1,9 +1,10 @@
-'use strict';
+
 
 const express = require('express');
+
 const router = express.Router();
-const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
+const User = require('../../models/User');
 const localConfig = require('../../localConfig');
 const encryptUtils = require('../../lib/encrypt');
 
@@ -13,8 +14,8 @@ const encryptUtils = require('../../lib/encrypt');
 //  */
 // router.get('/', async (req, res, next) => {
 //     try {
-       
-//     const name = req.query.name; 
+
+//     const name = req.query.name;
 //     const skip = parseInt(req.query.skip);
 //     const limit = parseInt(req.query.limit);
 //     const fields = req.query.fields;
@@ -27,7 +28,7 @@ const encryptUtils = require('../../lib/encrypt');
 //     }
 
 //     const users = await User.list(filter, skip, limit, fields, sort);
-    
+
 //     res.json({ success: true, result: users });
 
 //     } catch(err) {
@@ -39,19 +40,18 @@ const encryptUtils = require('../../lib/encrypt');
  * POST /
  * Add new user
  */
- router.post('/', async (req, res, next) => {
-    try {
-        const user = new User(req.body);
+router.post('/', async (req, res, next) => {
+  try {
+    const user = new User(req.body);
 
-        user.pass = encryptUtils.hashText(user.pass);
-          
-        const userSaved = await user.save();
+    user.pass = encryptUtils.hashText(user.pass);
 
-        res.json({ success: true, result: userSaved });
+    const userSaved = await user.save();
 
-    } catch(err) {
-        next(err);
-    }
+    res.json({ success: true, result: userSaved });
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
@@ -59,38 +59,36 @@ const encryptUtils = require('../../lib/encrypt');
  * Authenticate
  */
 router.post('/authenticate', async (req, res, next) => {
-    try {
-        const email = req.body.email;
-        const pass = req.body.pass;
-        const passEncrypted = encryptUtils.hashText(pass);
+  try {
+    const { email, pass } = req.body;
+    const passEncrypted = encryptUtils.hashText(pass);
 
-        const user = await User.findOne({ email: email }).exec();
-          
-        if(!user) {
-            res.json({ success: true, message: 'Invalid credentials' });
-            return;
-        }
+    const user = await User.findOne({ email }).exec();
 
-        
-        if (passEncrypted !== user.pass) {
-            res.json({ success: true, message: 'Invalid credentials' });
-            return;
-        }
-
-        //create JWT
-        jwt.sign({ user_id: user._id }, localConfig.jwt.secret, {
-            expiresIn: localConfig.jwt.expiresIn
-        }, (err, token) => {
-            if (err) {
-                next(err);
-                return;
-            }
-            res.json({ success: true, token: token });
-        });
-
-    } catch(err) {
-        next(err);
+    if (!user) {
+      res.json({ success: true, message: 'Invalid credentials' });
+      return;
     }
+
+
+    if (passEncrypted !== user.pass) {
+      res.json({ success: true, message: 'Invalid credentials' });
+      return;
+    }
+
+    // create JWT
+    jwt.sign({ user_id: user.id }, localConfig.jwt.secret, {
+      expiresIn: localConfig.jwt.expiresIn,
+    }, (err, token) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.json({ success: true, token });
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;

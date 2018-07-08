@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "cluster": "node ./bin/cluster",
     "dev": "DEBUG=nodepop:* nodemon ./bin/www",
-    "installDB": "node ./install_db.js | npm run dev"
+    "installDB": "node ./install_db.js | npm run dev",
+    "lint": "eslint ./ --fix"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
