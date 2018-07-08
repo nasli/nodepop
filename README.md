@@ -1,4 +1,8 @@
-# nodeapi
+# nodepop
+
+Server software that will run on the server to provide an API to support an ads app of second-hand selling. 
+
+Use NodeJS, ExpressJS, MongoDB and MongooseJS
 
 ## Installation
 
@@ -104,20 +108,27 @@ You can filter results
 ### Tags 
 
 To obtain a list of all available tags for ads use next endpoint with a JWT:
+
     http://localhost:3000/apiv1/ads/tags?token=
  
 
 ### Users
     http://localhost:3000/apiv1/users
 
-To create new user make a POST to: / apiv1/users with the name, email and password. 
+To create new user make a POST to: 
+
+    / apiv1/users with the name, email and password. 
+
 Password will be encripted with crypto hash lib.
 
 ### Authentication
 
-To obtain a token make a POST to: /apiv1/users/authenticate with email and password
+To obtain a token make a POST to: 
+
+    /apiv1/users/authenticate with email and password
 
 Use that token in the rest of request in:
+    
     - header: 'x-access-token'
     - body: token
     - query string: token
