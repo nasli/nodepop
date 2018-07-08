@@ -5,6 +5,7 @@ const router = express.Router();
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const localConfig = require('../../localConfig');
+const encryptUtils = require('../../lib/encrypt');
 
 // /**
 //  * GET /
@@ -41,6 +42,8 @@ const localConfig = require('../../localConfig');
  router.post('/', async (req, res, next) => {
     try {
         const user = new User(req.body);
+
+        user.pass = encryptUtils.hashText(user.pass);
           
         const userSaved = await user.save();
 
@@ -59,6 +62,7 @@ router.post('/authenticate', async (req, res, next) => {
     try {
         const email = req.body.email;
         const pass = req.body.pass;
+        const passEncrypted = encryptUtils.hashText(pass);
 
         const user = await User.findOne({ email: email }).exec();
           
@@ -67,7 +71,8 @@ router.post('/authenticate', async (req, res, next) => {
             return;
         }
 
-        if (pass !== user.pass) {
+        
+        if (passEncrypted !== user.pass) {
             res.json({ success: true, message: 'Invalid credentials' });
             return;
         }

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // Define model
 const userSchema = mongoose.Schema({
     name: String,
-    email: {type: String, unique: true},
+    email: String,
     pass: String 
 }); 
 
@@ -29,6 +29,8 @@ userSchema.statics.list = function(filter, skip, limit, fields, sort) {
 }
 
 userSchema.index({ name: 1 });
+userSchema.index({ email: 1 }, { unique: true });
+
 
 const User = mongoose.model('User', userSchema);
 
