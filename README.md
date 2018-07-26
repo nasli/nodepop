@@ -46,7 +46,7 @@ npm run dev
 
 To start the application in development mode and pre loading test data in DB use:
 ```shell
-npm run install_db
+npm run installDB
 ```
 
 ## Views
