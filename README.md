@@ -34,6 +34,12 @@ To start in cluster mode use:
 npm run cluster
 ```
 
+## Config env variables
+
+You can set up the following env variables:
+DATABASE_URI
+PORT
+
 ## Development
 
 To start the application in development mode use:
