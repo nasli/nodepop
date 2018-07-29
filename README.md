@@ -19,7 +19,11 @@ Example static file provided by Nginx:
 nodepop.nasli.io/images/ads/bikeDesign.jpg
 ```
 
+- Configured upgrade script for new versions that will retrieve latest git version and restart app.
 
+- Added some security settings
+
+- Added SSL certificates 
 
 ## Installation
 
