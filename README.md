@@ -4,6 +4,23 @@ Server software that will run on the server to provide an API to support an ads 
 
 Use NodeJS, ExpressJS, MongoDB and MongooseJS
 
+## Deployed
+
+- Used *PM2* in order to keep Nodepop intact across expected or unexpected machine restarts.
+
+- Deployed using Nginx as reverse proxy: 
+````
+nodepop.nasli.io
+````
+
+- Serving Static files by Nginx instead of Express and added custom header *X-Owner* to check who is serving it.
+Example static file provided by Nginx: 
+```
+nodepop.nasli.io/images/ads/bikeDesign.jpg
+```
+
+
+
 ## Installation
 
 Install dependencies with:
