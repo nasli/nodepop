@@ -11,6 +11,7 @@ Use NodeJS, ExpressJS, MongoDB and MongooseJS
 - Deployed using Nginx as reverse proxy: 
 ````
 nodepop.nasli.io
+template.nasli.io -->temporal created due let's Encrypt renewal limitation in domain nasli.io until it's fixed..
 ````
 
 - Serving Static files by Nginx instead of Express and added custom header *X-Owner* to check who is serving it.
